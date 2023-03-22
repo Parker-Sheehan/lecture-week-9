@@ -1,23 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import Greeting from './components/Greeting';
+import Bravo from './components/Bravo';
 
 function App() {
+
+  let myPeople = [
+    {
+      name: "Brady",
+      age: 26,
+      isCool: true
+    },
+    {
+      name: "Scott",
+      age: 25,
+      isCool: false
+    },
+    {
+      name: "Katie",
+      age: 18,
+      isCool: true
+    },
+  ]
+
+  let peopleDisplay = myPeople.map((person, index) => {
+    return <Greeting personalInfo={person}/>
+})
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>
+        these are my people
+      </h1>
+      {peopleDisplay}
+      <br/>
+      <Bravo/>
     </div>
   );
 }
